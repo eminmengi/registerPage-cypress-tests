@@ -10,7 +10,7 @@ const initialValues ={
     password: '',
 }
 
-const errorMesages = {
+export const errorMesages = {
     ad: "Adınızı en az 3 karakter giriniz.",
     soyad: "Soyadınızı En az 3 karakter giriniz.",
     email: "Geçerli bir email adresi giriniz.",
@@ -95,8 +95,9 @@ export default function Register() {
                     onChange={handleChange}
                     value={formData.ad}
                     invalid={errors.ad}
+                    data-cy="ad-input"
                     />
-                    {errors.ad && <FormFeedback>{errorMesages.ad}</FormFeedback>}   
+                    {errors.ad && <FormFeedback data-cy="error-message">{errorMesages.ad}</FormFeedback>}   
                 </FormGroup>
                 <FormGroup>
                 <Label for="soyad">Soyad:</Label>
@@ -108,8 +109,9 @@ export default function Register() {
                     onChange={handleChange}
                     value={formData.soyad}
                     invalid={errors.soyad}
+                    data-cy="soyad-input"
                     />
-                    {errors.soyad && <FormFeedback>{errorMesages.soyad}</FormFeedback>}
+                    {errors.soyad && <FormFeedback data-cy="error-message">{errorMesages.soyad}</FormFeedback>}
                 </FormGroup>
                 <FormGroup>
                 <Label for="email">Email:</Label>
@@ -121,8 +123,9 @@ export default function Register() {
                     onChange={handleChange}
                     value={formData.email}
                     invalid={errors.email}
+                    data-cy="email-input"
                     />
-                    {errors.email && <FormFeedback>{errorMesages.email}</FormFeedback>}
+                    {errors.email && <FormFeedback data-cy="error-message">{errorMesages.email}</FormFeedback>}
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">Password:</Label>
@@ -134,11 +137,12 @@ export default function Register() {
                     onChange={handleChange}
                     value={formData.password}
                     invalid={errors.password}
+                    data-cy="password-input"
                     />
-                    {errors.password && <FormFeedback>{errorMesages.password}</FormFeedback>}
+                    {errors.password && <FormFeedback data-cy="error-message">{errorMesages.password}</FormFeedback>}
                 </FormGroup>
 
-                <Button disabled={!isValid}>Kayıt ol</Button>
+                <Button disabled={!isValid} data-cy="submit-button">Kayıt ol</Button>
             </Form>
             </CardBody>
         </Card>
