@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Card, CardBody, CardHeader, Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import { useNavigate } from "react-router-dom";
+
 
 const initialValues ={
     ad: '',
@@ -15,6 +17,7 @@ const errorMesages = {
     password: "En az 8 karakter, en az 1 büyük harf, en az 1 küçük harf, en az 1 sembol ve en az 1 rakam içermelidir."
 }
 export default function Register() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState(initialValues)
     const [errors, setErrors] = useState({
         ad: false,
@@ -71,7 +74,9 @@ export default function Register() {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(isValid) return;
+        if(isValid) {
+            navigate("/success");
+        }
 
     }
 
